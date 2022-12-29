@@ -1,0 +1,16 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{user?.name}}</mat-card-title>
+    <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://t.ctcdn.com.br/_eT-1-jMu8Zf_fHSR8HahRHX168=/59x32:1137x639/720x405/smart/filters:format(webp)/i393049.png">
+  <mat-card-content>
+    <p>
+      Este é o seu perfil, usuário!
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [mat-dialog-close] cdkFocusInitial>FECHAR</button>
+  </mat-card-actions>
+</mat-card>

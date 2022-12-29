@@ -1,0 +1,17 @@
+.card {
+    max-width: 400px;
+    box-shadow: none;
+  }
+  
+.header-image {
+    background-image: url(../../assets/images/profile.png);
+    background-size: cover;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 !important;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}

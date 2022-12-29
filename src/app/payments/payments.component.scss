@@ -1,0 +1,79 @@
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 15%;
+}
+
+.payments-body {
+  padding: 0 50px;
+}
+
+.mat-elevation-z8 {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+}
+
+.button-payment {
+	border-radius: 4px;
+	border: 1px solid #007DFE;
+	background-color: #007DFE;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.button-payments {
+  float: right;
+}
+
+b {
+  color: #F8F8F8;
+}
+
+span {
+  color: #F8F8F8;
+}
+
+.mat-toolbar {
+  background-color: #002D69;
+}
+
+.username {
+	color: #69788C;
+	font-style: normal;
+	letter-spacing: -0.2px;
+	align-items: center;
+	padding-top: 12px;
+	padding-bottom: 8px;
+}
+
+.td-username {
+	padding-top: 8px;
+}
+
+.image {
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.image-profile {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.logout {
+	flex: 1 1 auto;
+  }

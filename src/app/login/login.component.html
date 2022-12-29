@@ -1,0 +1,21 @@
+<div>
+	<div class="form-container sign-in-container">
+		<form [formGroup]="loginForm">
+			<h1><b>Pay</b>Friends</h1>
+			<div class="social-container">
+				Bem vindo de volta
+			</div>
+			<input type="email" formControlName="email" placeholder="Email" />
+			<input type="password" formControlName="password" placeholder="Senha" />
+			<button (click)="login()">ENTRAR</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<img src="assets/images/man-doing-online-payment1.svg">
+			</div>
+		</div>
+	</div>
+</div>
+

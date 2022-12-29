@@ -1,0 +1,38 @@
+<h1 mat-dialog-title><b>{{titleDialog}}</b></h1>
+<form [formGroup]="formPayment">
+  <div class="row">
+    <div class="column">
+      <mat-form-field appearance="outline">
+        <mat-label> Usuário </mat-label>
+        <input formControlName="user" required matInput placeholder="Nome do usuário">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Data </mat-label>
+        <input formControlName="date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+    <div class="column">
+
+      <mat-form-field appearance="outline">
+        <mat-label> Valor </mat-label>
+        <input formControlName="value" required matInput placeholder="Valor de Pagamento">
+        <mat-icon matSuffix>payment</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Título </mat-label>
+        <input formControlName="title" matInput placeholder="Título">
+        <mat-icon matSuffix>person_pin</mat-icon>
+      </mat-form-field>
+
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="formPayment.value" cdkFocusInitial>CANCELAR</button>
+    <button mat-raised-button [mat-dialog-close] (click)="savePayment()" cdkFocusInitial>SALVAR</button>
+  </div>

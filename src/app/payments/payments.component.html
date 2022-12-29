@@ -1,0 +1,92 @@
+<mat-toolbar class="mat-toolbar">
+    <span><b>Pay</b>Friends</span>
+        <span class="logout"></span>
+            <img class="image-profile" [matMenuTriggerFor]="menu" [src]="'assets/images/profile.png'" />
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="profile()">Meu perfil</button>
+                <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+</mat-toolbar>
+<div class="payments-body">
+    <h1>Meus pagamentos</h1>
+    <mat-form-field appearance="standard">
+        <mat-label>Pesquisa por usuário/título/valor</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Professor 1" #input>
+    </mat-form-field>
+    <div class="button-payments">
+        <button mat-button class="button-payment" (click)="openDialog('')">Adicionar Pagamento</button>
+    </div>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="user">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuário </th>
+                <td mat-cell *matCellDef="let row" >
+                    {{row.name}}
+                    <div class="username">@{{row.username}}</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+                <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+                <td mat-cell *matCellDef="let row" class="td-username">
+                    {{row.date | date: 'd MMM y'}}
+                    <div class="username">{{row.date | date: 'h:mm a'}}</div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
+                <td mat-cell *matCellDef="let row"> {{row.value | currency:'BRL'}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="isPayed">
+                <th mat-header-cell *matHeaderCellDef> Pago </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox [checked]="row.isPayed">
+                  </mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let row">
+                    <img class="image" [src]="row.image || 'assets/images/profile.png'" />
+                </td>
+              </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let row">
+                    <button (click)="openDialog(row)" mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let row">
+                    <button (click)="deletePayment(row)" mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nenhum resultado encontrado para: "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="totalTableItems" 
+        [pageIndex]="pagination._page" [pageSize]="pagination._limit" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+</div>

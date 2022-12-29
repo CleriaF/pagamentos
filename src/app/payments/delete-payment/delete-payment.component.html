@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Excluir pagamento</h1>
+<div mat-dialog-content>
+  <p>
+    <b>Usuário:</b> {{user}}
+  </p>
+  <p>
+    <b>Data:</b> {{date | date: 'dd/MM/yyyy'}}
+  </p>
+  <p>
+    <b>Valor:</b> {{value | currency:'BRL'}}
+  </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>CANCELAR</button>
+    <button mat-raised-button [mat-dialog-close] (click)="delete()" cdkFocusInitial>CONFIRMAR</button>
+</div>
